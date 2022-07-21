@@ -25,7 +25,7 @@
 - name: "Set tun0 interface to {{ firewalld_tunnel_interface_zone }}"
   ansible.posix.firewalld:
     interface: tun0
-    zone: {{ firewalld_tunnel_interface_zone }}
+    zone: "{{ firewalld_tunnel_interface_zone }}"
     permanent: true
     immediate: true
     state: enabled
