@@ -22,15 +22,15 @@
     immediate: true
     state: enabled
 
-- name: Set tun0 interface to internal
+- name: "Set tun0 interface to {{ firewalld_tunnel_interface_zone }}"
   ansible.posix.firewalld:
     interface: tun0
-    zone: internal
+    zone: {{ firewalld_tunnel_interface_zone }}
     permanent: true
     immediate: true
     state: enabled
 
-- name: Set default interface to external
+- name: "Set default interface to {{ firewalld_default_interface_zone }}"
   ansible.posix.firewalld:
     interface: "{{ ansible_default_ipv4.interface }}"
     zone: "{{ firewalld_default_interface_zone }}"
